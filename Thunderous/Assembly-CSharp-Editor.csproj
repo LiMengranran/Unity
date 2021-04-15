@@ -261,25 +261,25 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="antlr.runtimePlastic">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/antlr.runtimePlastic.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/antlr.runtimePlastic.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.RuntimePlastic">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/Antlr3.RuntimePlastic.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/Antlr3.RuntimePlastic.dll</HintPath>
     </Reference>
     <Reference Include="LibGit2SharpPlastic">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/LibGit2SharpPlastic.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/LibGit2SharpPlastic.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/log4netPlastic.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json.Net20Plastic">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/Newtonsoft.Json.Net20Plastic.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/Newtonsoft.Json.Net20Plastic.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/unityplastic.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.plasticscm-cn@1.1.8-preview/Lib/Editor/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -636,37 +636,37 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Luhengfeng/UnityLearn/Thunderous/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity/Thunderous/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

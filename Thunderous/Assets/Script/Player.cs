@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         transform.Translate(h, 0, v);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),
                                          transform.position.y,
-                                         Mathf.Clamp(transform.position.z, -God.god.worldPosLeftBottom.y + 3f, God.god.worldPosTopRight.y - 3f));
+                                         Mathf.Clamp(transform.position.z, God.god.worldPosLeftBottom.y, God.god.worldPosTopRight.y ));
         //print(transform.position.z+"---"+ -God.god.worldPosLeftBottom.y);
 
         if (Input.GetKey(KeyCode.J) && info.Timer(info.ShootTiming, info.ShootCD))

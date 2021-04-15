@@ -39,6 +39,8 @@ public class RoleInfo : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //print(transform.GetComponent<Collider>().bounds.extents);
+
         if (!God.god.IsStartGame)
             return;
         if (shootTiming < ShootCD) //子弹计时充能
@@ -48,7 +50,7 @@ public class RoleInfo : MonoBehaviour
         if (Hp <= 0
             || transform.position.x > God.god.worldPosTopRight.x + 3
             || transform.position.x < God.god.worldPosLeftBottom.x - 3
-            || transform.position.z < -God.god.worldPosLeftBottom.y - 3)
+            || transform.position.z < God.god.worldPosLeftBottom.y - 3)
         {
             Dead();
             Hp = StaticHp; //变0后 进缓冲池血量回复
@@ -70,12 +72,12 @@ public class RoleInfo : MonoBehaviour
             explosion = God.god.FindSon(God.god.AnimationPool.transform, "ExpAnimator(Clone)").gameObject;
             explosion.transform.parent = null;
             explosion.gameObject.SetActive(true);
-            print("找到了");
+            //print("找到了");
         }
         else
         {
             explosion = Instantiate(God.god.ExpAnimator);
-            print("找不到了");
+            //print("找不到了");
         }
         explosion.transform.position = transform.position;
         explosion.transform.localScale = transform.GetChild(0).localScale * 2;

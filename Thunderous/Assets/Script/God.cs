@@ -32,7 +32,7 @@ public class God : MonoBehaviour
 
         BulletPool = GameObject.Find("BulletPool"); //子弹缓存
         StandbyPool = GameObject.Find("StandbyPool"); //待机 缓存
-        
+
         //----------------------------UI-----------------------------
         Ui = GameObject.Find("Canvas"); //UI
         if (Ui)
@@ -41,17 +41,26 @@ public class God : MonoBehaviour
         //----------------------------屏幕范围-----------------------------
         worldPosLeftBottom = Camera.main.ViewportToWorldPoint(Vector2.zero);
         worldPosTopRight = Camera.main.ViewportToWorldPoint(Vector2.one);
+        worldPosLeftBottom = new Vector2(worldPosLeftBottom.x, transform.position.z - 5);
+        worldPosTopRight = new Vector2(worldPosTopRight.x, transform.position.z + 5);
 
+        print(worldPosLeftBottom+"---"+ worldPosTopRight);
     }
 
     private void Start()
     {
 
     }
+    public GameObject cube;
     private void FixedUpdate()
     {
+        //Vector3 pos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        //Vector3 pos2 = Camera.main.ViewportToWorldPoint(pos1);
+        //cube.transform.position = new Vector3(pos2.x, 0, pos2.z);
+        //print(pos2);
         if (!God.god.IsStartGame)
             return;
+
         else
         {
             BeginUi.SetActive(false);
