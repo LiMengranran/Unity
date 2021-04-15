@@ -1,0 +1,51 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Bullet_Control : MonoBehaviour
+{
+    // Start is called before the first frame update
+    float Timing;
+    GameObject masetaa;
+
+    public GameObject Masetaa { get => masetaa; set => masetaa = value; }
+
+    void Start()
+    {
+
+    }
+    private void FixedUpdate()
+    {
+        transform.Translate(0, 0, 10 * Time.fixedDeltaTime);
+        Timing += Time.fixedDeltaTime;
+        if (Timing > 3)
+        {
+            EnterBulletPool();
+            Timing = 0;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<RoleInfo>())
+        {
+            other.GetComponent<RoleInfo>().Hp -= Masetaa.GetComponent<RoleInfo>().Attk;
+            //print(other.GetComponent<RoleInfo>().Hp);
+            EnterBulletPool();
+        }
+    }
+    //private void OnTriggerStay(Collider other)
+    //{
+
+    //    Debug.Log(other + "停留");
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    Debug.Log(other + "离开");
+    //}
+    void EnterBulletPool()
+    {
+        this.transform.parent = God.god.GetBulletPool_Game().transform;
+        this.transform.gameObject.SetActive(false);
+    }//其咩萝 消失
+
+}
