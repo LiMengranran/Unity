@@ -14,16 +14,20 @@ public class Bullet_Control : MonoBehaviour
     {
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        transform.Translate(0, 0, 10 * Time.fixedDeltaTime);
+        transform.Translate(0, 0, 10 * Time.deltaTime);
         Timing += Time.fixedDeltaTime;
         if (Timing > 3)
         {
             EnterBulletPool();
             Timing = 0;
         }
+        
     }
+    //private void FixedUpdate()
+    //{
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<RoleInfo>())

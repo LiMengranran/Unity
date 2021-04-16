@@ -23,13 +23,15 @@ public class Player : MonoBehaviour
         if (!God.god.IsStartGame)
             return;
         //第二种限制的方法
-        float v = Input.GetAxis("Vertical") * Time.deltaTime * info.Speed;
-        float h = Input.GetAxis("Horizontal") * Time.deltaTime * info.Speed;
+        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
 
-        transform.Translate(h, 0, v);
+        transform.GetChild(0).rotation = Quaternion.Euler(0, 0, 40 * -h);
+        transform.Translate(h * Time.deltaTime * info.Speed, 0, v * Time.deltaTime * info.Speed);
+
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),
                                          transform.position.y,
-                                         Mathf.Clamp(transform.position.z, God.god.worldPosLeftBottom.y, God.god.worldPosTopRight.y ));
+                                         Mathf.Clamp(transform.position.z, God.god.worldPosLeftBottom.y, God.god.worldPosTopRight.y));
         //print(transform.position.z+"---"+ -God.god.worldPosLeftBottom.y);
 
         if (Input.GetKey(KeyCode.J) && info.Timer(info.ShootTiming, info.ShootCD))

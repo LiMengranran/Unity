@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class God : MonoBehaviour
 {
     public static God god;
+    GameObject player;
 
     public bool IsStartGame = false;
     GameObject Ui;
@@ -22,9 +23,16 @@ public class God : MonoBehaviour
     public Vector2 worldPosLeftBottom;
     public Vector2 worldPosTopRight;
 
+
+    public GameObject cube;
+
+    public GameObject Player { get => player; set => player = value; }
     private void Awake()
     {
         god = this;
+
+        player = GameObject.Find("Player");
+
 
         ExpAnimator = Resources.Load<GameObject>("ExpAnimator");
         AnimationPool = GameObject.Find("AnimationPool");
@@ -44,14 +52,15 @@ public class God : MonoBehaviour
         worldPosLeftBottom = new Vector2(worldPosLeftBottom.x, transform.position.z - 5);
         worldPosTopRight = new Vector2(worldPosTopRight.x, transform.position.z + 5);
 
-        print(worldPosLeftBottom+"---"+ worldPosTopRight);
+        //print(worldPosLeftBottom+"---"+ worldPosTopRight);
     }
 
-    private void Start()
-    {
+    //private void Start()
+    //{
 
-    }
-    public GameObject cube;
+    //}
+    
+
     private void FixedUpdate()
     {
         //Vector3 pos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -60,7 +69,6 @@ public class God : MonoBehaviour
         //print(pos2);
         if (!God.god.IsStartGame)
             return;
-
         else
         {
             BeginUi.SetActive(false);

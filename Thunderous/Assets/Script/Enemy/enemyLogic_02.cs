@@ -6,24 +6,51 @@ using UnityEngine;
 public class enemyLogic_02 : MonoBehaviour
 {
     RoleInfo info;
-    GameObject target;
+
+
+    float X;
+    bool IsRight;
+    float dis;
     private void Awake()
     {
         info = transform.GetComponent<RoleInfo>();
-        target = GameObject.Find("Player");
+    }
+    private void Start()
+    {
+        X = transform.position.x; //横向坐标
+        dis = Random.Range(1, 6); //距离
+        IsRight = (Random.Range(0, 2) == 1 ? false : true);
     }
     // Start is called before the first frame update
-    //void Update()
-    //{
-
-    //}
-    private void FixedUpdate()
+    void Update()
     {
+        print(transform.position.x);
         if (!God.god.IsStartGame)
             return;
-        transform.Translate(new Vector3(0, 0, -info.Speed * Time.fixedDeltaTime), Space.World);
-        //Quaternion dir = Quaternion.LookRotation(target.transform.position - transform.position);
-        //transform.rotation = Quaternion.Lerp(transform.rotation, dir, 0.5f);
+
+        if (transform.position.x >= God.god.worldPosTopRight.x)
+        {
+            IsRight = false;
+        }
+        else if (transform.position.x <= God.god.worldPosLeftBottom.x)
+        {
+            IsRight = true;
+        }
+        if (transform.position.z <= God.god.worldPosTopRight.y)
+        {
+            Vector3 posY = new Vector3(X += (IsRight ? 0.01f * info.Speed : -0.01f * info.Speed), 0, dis) + God.god.Player.transform.position;
+            transform.position = Vector3.Lerp(transform.position, posY, info.Speed * 0.1f * Time.deltaTime * Vector3.Distance(transform.position, God.god.Player.transform.position));
+            Quaternion dir = Quaternion.LookRotation(God.god.Player.transform.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, dir, 0.1f);
+            //限制范围
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),
+                                             transform.position.y,
+                                             Mathf.Clamp(transform.position.z, God.god.worldPosLeftBottom.y, God.god.worldPosTopRight.y));
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, 0, -info.Speed * Time.deltaTime), Space.World);
+        }
 
         if (info.Timer(info.ShootTiming, info.ShootCD) && transform.position.z <= God.god.worldPosTopRight.y) //充能
         {
