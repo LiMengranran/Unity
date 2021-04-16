@@ -24,7 +24,7 @@ public class enemyLogic_02 : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        print(transform.position.x);
+        //print(transform.position.x);
         if (!God.god.IsStartGame)
             return;
 
@@ -40,8 +40,9 @@ public class enemyLogic_02 : MonoBehaviour
         {
             Vector3 posY = new Vector3(X += (IsRight ? 0.01f * info.Speed : -0.01f * info.Speed), 0, dis) + God.god.Player.transform.position;
             transform.position = Vector3.Lerp(transform.position, posY, info.Speed * 0.1f * Time.deltaTime * Vector3.Distance(transform.position, God.god.Player.transform.position));
-            Quaternion dir = Quaternion.LookRotation(God.god.Player.transform.position - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, dir, 0.1f);
+
+            info.LookPlayer(); //看向玩家
+
             //限制范围
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),
                                              transform.position.y,

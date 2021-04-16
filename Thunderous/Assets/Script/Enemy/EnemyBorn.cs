@@ -10,9 +10,10 @@ public class EnemyBorn : MonoBehaviour
     List<char> CreateEnemyList = new List<char>();
 
     //GameObject this;
-    int MaxNumb = 02;
+    int MaxNumb = 03;
     GameObject Enemy01;
     GameObject Enemy02;
+    GameObject Enemy03;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class EnemyBorn : MonoBehaviour
         }
         Enemy01 = Resources.Load<GameObject>("Enemy_01");
         Enemy02 = Resources.Load<GameObject>("Enemy_02");
+        Enemy02 = Resources.Load<GameObject>("Enemy_03");
     }
     // Start is called before the first frame update
     void Start()

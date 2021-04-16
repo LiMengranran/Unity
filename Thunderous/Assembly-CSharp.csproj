@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\Enemy\enemyLogicMain.cs" />
     <Compile Include="Assets\Script\Enemy\enemyLogic_01.cs" />
     <Compile Include="Assets\Script\Enemy\enemyLogic_02.cs" />
+    <Compile Include="Assets\Script\Enemy\enemyLogic_03.cs" />
     <Compile Include="Assets\Script\ExpAnimator.cs" />
     <Compile Include="Assets\Script\God.cs" />
     <Compile Include="Assets\Script\Player.cs" />

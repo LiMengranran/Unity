@@ -17,7 +17,9 @@ public class RoleInfo : MonoBehaviour
 
     float shootTiming;
     Transform Emitter;
-
+    public GameObject AimingLine;
+    public Vector3 AimingLineScale;
+    public Vector3 Static_AimingLine;
     public float ShootCD { get => shootCD; set => shootCD = value; }
     public float ShootTiming { get => shootTiming; set => shootTiming = value; }
     public GameObject BulletPool { get => bulletPool; set => bulletPool = value; }
@@ -27,7 +29,7 @@ public class RoleInfo : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        shootCD = 1.1f - Mathf.Clamp(ShootSpeed, 0, 100) / 100;
+        shootCD = 1.01f - Mathf.Clamp(ShootSpeed, 0, 100) / 100;
 
         StaticHp = Hp;
     }
@@ -36,6 +38,15 @@ public class RoleInfo : MonoBehaviour
         bullet = Resources.Load<GameObject>("Bullet"); //加载子弹
         Emitter = God.god.FindSon(transform, "Emitter"); //找射击口
         BulletPool = God.god.GetBulletPool_Game(); // 缓冲池
+
+        if (God.god.FindSon(transform, "ShootAimingLine"))
+        {
+            AimingLine = God.god.FindSon(transform, "AimingLine").gameObject;
+            AimingLineScale = AimingLine.transform.localScale; //赋值大小
+            Static_AimingLine = AimingLineScale; //静态大小赋值
+        }//赋值预判线
+
+
     }
     private void FixedUpdate()
     {
@@ -100,6 +111,13 @@ public class RoleInfo : MonoBehaviour
         go.transform.position = Emitter.transform.position;
         go.transform.rotation = Emitter.transform.rotation;
     } //射击
+
+    
+    public void LookPlayer()
+    {
+        Quaternion dir = Quaternion.LookRotation(God.god.Player.transform.position - transform.position);
+        transform.rotation = Quaternion.Lerp(transform.rotation, dir, 0.1f);
+    }
     public bool Timer(float Timing, float NeedTime)
     {
         if (Timing >= NeedTime)
