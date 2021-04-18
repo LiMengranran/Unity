@@ -1552,6 +1552,9 @@ MonoBehaviour:
   Attk: 15
   Speed: 3
   ShootSpeed: 20
+  AimingLine: {fileID: 0}
+  AimingLineScale: {x: 0, y: 0, z: 0}
+  Static_AimingLine: {x: 0, y: 0, z: 0}
 --- !u!114 &5433508613097846023
 MonoBehaviour:
   m_ObjectHideFlags: 0

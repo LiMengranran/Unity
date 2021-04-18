@@ -10,6 +10,7 @@ public class EnemyBorn : MonoBehaviour
     List<char> CreateEnemyList = new List<char>();
 
     //GameObject this;
+
     int MaxNumb = 03;
     GameObject Enemy01;
     GameObject Enemy02;
@@ -23,7 +24,7 @@ public class EnemyBorn : MonoBehaviour
         }
         Enemy01 = Resources.Load<GameObject>("Enemy_01");
         Enemy02 = Resources.Load<GameObject>("Enemy_02");
-        Enemy02 = Resources.Load<GameObject>("Enemy_03");
+        Enemy03 = Resources.Load<GameObject>("Enemy_03");
     }
     // Start is called before the first frame update
     void Start()
@@ -64,12 +65,21 @@ public class EnemyBorn : MonoBehaviour
     float GenerateTime;
     private void FixedUpdate()
     {
-
         if (!God.god.IsStartGame)
+        {
+
+
+            //print(EnemiesNum);
+            //EnemiesNum = int.Parse(God.god.DifficultValue * 5f);
             return;
+        }
 
         if (CreateEnemyList.Count >= 2) //判断 还有没有 Tips 通常不会是大于2
         {
+            if (God.god.EnemiesNum >= God.god.MaxEnemiesNum)
+                return;
+
+
             if (GenerateEnemyTiming >= GenerateTime)//当起飞时间大于起飞CD就可以 起飞 欸 飞~
             {
                 for (int i = 0; i < EnemyGoPos.Count; i++) //有多少个起飞点   就飞几个编号
@@ -88,11 +98,14 @@ public class EnemyBorn : MonoBehaviour
 
                     switch (NB)
                     {
-                        case "01":
-                            BornEnemy(Enemy01, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
-                            break;
+                        //case "01":
+                        //    BornEnemy(Enemy01, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
+                        //    break;
                         case "02":
                             BornEnemy(Enemy02, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
+                            break;
+                        case "03":
+                            BornEnemy(Enemy03, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
                             break;
                         default:
 
@@ -109,11 +122,11 @@ public class EnemyBorn : MonoBehaviour
                 GenerateEnemyTiming += Time.fixedDeltaTime;
             } //起飞时间
         }
-        else
-        {
-            print("飞完了");
-        }
-    }
+        //else
+        //{
+        //    print("飞完了");
+        //}
+    }//生成敌人
     void BornEnemy(GameObject enemy, Vector3 pos, Quaternion dir)
     {
         GameObject go;
@@ -129,6 +142,8 @@ public class EnemyBorn : MonoBehaviour
         }
         go.transform.position = pos;
         go.transform.rotation = dir;
+        print("出生了");
+        God.god.EnemiesNum += 1; //出场数量 +自己 +1
     } //敌人出生
     void BornGenerateTime()
     {

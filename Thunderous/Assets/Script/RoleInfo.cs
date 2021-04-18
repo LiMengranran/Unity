@@ -32,9 +32,11 @@ public class RoleInfo : MonoBehaviour
         shootCD = 1.01f - Mathf.Clamp(ShootSpeed, 0, 100) / 100;
 
         StaticHp = Hp;
+
     }
     void Start()
     {
+
         bullet = Resources.Load<GameObject>("Bullet"); //加载子弹
         Emitter = God.god.FindSon(transform, "Emitter"); //找射击口
         BulletPool = God.god.GetBulletPool_Game(); // 缓冲池
@@ -64,6 +66,8 @@ public class RoleInfo : MonoBehaviour
             || transform.position.z < God.god.worldPosLeftBottom.y - 3)
         {
             Dead();
+            God.god.EnemiesNum -= 1;
+
             Hp = StaticHp; //变0后 进缓冲池血量回复
         }
     }
@@ -71,6 +75,7 @@ public class RoleInfo : MonoBehaviour
     {
         transform.parent = God.god.GetStandbyPool_Game().transform;
         transform.gameObject.SetActive(false);
+        print("死了");
         //transform.position
         ExpAnimation();
 
@@ -112,7 +117,7 @@ public class RoleInfo : MonoBehaviour
         go.transform.rotation = Emitter.transform.rotation;
     } //射击
 
-    
+
     public void LookPlayer()
     {
         Quaternion dir = Quaternion.LookRotation(God.god.Player.transform.position - transform.position);

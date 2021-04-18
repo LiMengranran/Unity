@@ -10,6 +10,11 @@ public class God : MonoBehaviour
     public bool IsStartGame = false;
     GameObject Ui;
     GameObject BeginUi;
+    GameObject GameUi;
+    public float DifficultValue;
+    public string DifficultText;
+    public int EnemiesNum; //敌人出场数量
+    public int MaxEnemiesNum; //最大敌人出场数量
     //Button StartGame;
 
 
@@ -33,7 +38,6 @@ public class God : MonoBehaviour
 
         player = GameObject.Find("Player");
 
-
         ExpAnimator = Resources.Load<GameObject>("ExpAnimator");
         AnimationPool = GameObject.Find("AnimationPool");
         //----------------------------敌人-----------------------------
@@ -44,7 +48,10 @@ public class God : MonoBehaviour
         //----------------------------UI-----------------------------
         Ui = GameObject.Find("Canvas"); //UI
         if (Ui)
+        {
             BeginUi = FindSon(Ui.transform, "StartInterface").gameObject; //开始界面
+            GameUi = FindSon(Ui.transform, "GameUi").gameObject;
+        }
         FindSon(BeginUi.transform, "StartGame ").gameObject.GetComponent<Button>().onClick.AddListener(StartGameButton);
         //----------------------------屏幕范围-----------------------------
         worldPosLeftBottom = Camera.main.ViewportToWorldPoint(Vector2.zero);
@@ -59,20 +66,49 @@ public class God : MonoBehaviour
     //{
 
     //}
-    
+
 
     private void FixedUpdate()
     {
+
         //Vector3 pos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         //Vector3 pos2 = Camera.main.ViewportToWorldPoint(pos1);
         //cube.transform.position = new Vector3(pos2.x, 0, pos2.z);
         //print(pos2);
-        if (!God.god.IsStartGame)
+        if (!IsStartGame)
+        {
+            //布置难度
+            DifficultValue = FindSon(BeginUi.transform, "difficultMode").gameObject.GetComponent<Slider>().value;
+
+            float Num = DifficultValue * 3 * 5f + 5; //根据难度调整出场数量
+            MaxEnemiesNum = int.Parse((Mathf.Round(Num).ToString()));
+            print("最大敌人"+ MaxEnemiesNum);
+            //MaxEnemiesNum=Mathf()
+            if (DifficultValue <= 0.3f)
+            {
+                DifficultText = "简单";
+            }
+            else if (DifficultValue <= 0.6f)
+            {
+                DifficultText = "困难";
+            }
+            else if (DifficultValue < 1f)
+            {
+                DifficultText = "普通";
+            }
+            else
+            {
+                DifficultText = "地狱";
+            }
+            FindSon(BeginUi.transform, "DifficultyDisplay").gameObject.GetComponent<Text>().text = DifficultText;
             return;
+        }
         else
         {
             BeginUi.SetActive(false);
         }
+        FindSon(GameUi.transform, "EnemiesNum").gameObject.GetComponent<Text>().text = EnemiesNum.ToString();
+        //print(EnemiesNum + "-----" + MaxEnemiesNum);
     }
 
     public Transform FindSon(Transform parent, string name)

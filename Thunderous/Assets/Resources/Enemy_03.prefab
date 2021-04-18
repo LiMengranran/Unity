@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TypesId: 03
   Hp: 300
-  Attk: 50
+  Attk: 30
   Speed: 5
   ShootSpeed: 0
   AimingLine: {fileID: 0}
