@@ -6,16 +6,13 @@ using UnityEngine;
 public class enemyLogic_03 : MonoBehaviour
 {
     RoleInfo info;
-    float DazeTime;
 
+    float DazeTime;
     float dazeTiming;
     private void Awake()
     {
         info = transform.GetComponent<RoleInfo>();
-        //DazeTime = 2;
-    }
-    private void Start()
-    {
+        DazeTime = Random.Range(1.5f,2.6f);
     }
     // Start is called before the first frame update
     void Update()
@@ -40,7 +37,7 @@ public class enemyLogic_03 : MonoBehaviour
     public void BarbarbProcess()
     {
         //print(dazeTiming);
-        if (dazeTiming >= 2)
+        if (dazeTiming >= DazeTime)
         {
             IsAimingLine();
         }
@@ -52,7 +49,7 @@ public class enemyLogic_03 : MonoBehaviour
     }
     public void IsAimingLine()
     {
-        if (info.AimingLineScale.x <= 0 && dazeTiming >= 2)
+        if (info.AimingLineScale.x <= 0 && dazeTiming >= DazeTime)
         {
             info.AimingLine.SetActive(false);
             Barbarb();
@@ -81,7 +78,6 @@ public class enemyLogic_03 : MonoBehaviour
             info.AimingLineScale = info.Static_AimingLine;
             info.AimingLine.SetActive(true);
 
-            print("执行");
             dazeTiming = 0;
             BarbarbProcess();
         }
