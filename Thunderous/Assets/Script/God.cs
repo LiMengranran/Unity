@@ -52,7 +52,8 @@ public class God : MonoBehaviour
             BeginUi = FindSon(Ui.transform, "StartInterface").gameObject; //开始界面
             GameUi = FindSon(Ui.transform, "GameUi").gameObject;
         }
-        FindSon(BeginUi.transform, "StartGame ").gameObject.GetComponent<Button>().onClick.AddListener(StartGameButton);
+        FindSon(BeginUi.transform, "StartGame ").gameObject.GetComponent<Button>().onClick.AddListener(IsStartGameButton);
+        FindSon(GameUi.transform, "IconSet").gameObject.GetComponent<Button>().onClick.AddListener(IsStartGameButton);
         //----------------------------屏幕范围-----------------------------
         worldPosLeftBottom = Camera.main.ViewportToWorldPoint(Vector2.zero);
         worldPosTopRight = Camera.main.ViewportToWorldPoint(Vector2.one);
@@ -72,6 +73,7 @@ public class God : MonoBehaviour
     {
         if (!IsStartGame)
         {
+            BeginUi.SetActive(true);
             //布置难度
             DifficultValue = FindSon(BeginUi.transform, "difficultMode").gameObject.GetComponent<Slider>().value;
 
@@ -101,7 +103,6 @@ public class God : MonoBehaviour
         }
         else
         {
-
             BeginUi.SetActive(false);
             GameUi.SetActive(!BeginUi.activeSelf); //与开始界面 激活状态相反
         }
@@ -139,8 +140,8 @@ public class God : MonoBehaviour
         if (StandbyPool == null) StandbyPool = GameObject.Find("StandbyPool");
         return StandbyPool;
     }
-    void StartGameButton()
+    void IsStartGameButton()
     {
-        God.god.IsStartGame = true;
+        God.god.IsStartGame = !God.god.IsStartGame;
     }//开始游戏按钮
 }

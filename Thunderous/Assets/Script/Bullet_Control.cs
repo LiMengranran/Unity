@@ -7,23 +7,23 @@ public class Bullet_Control : MonoBehaviour
     // Start is called before the first frame update
     float Timing;
     GameObject masetaa;
-
+    float MoveSpped;
     public GameObject Masetaa { get => masetaa; set => masetaa = value; }
 
     void Start()
     {
-
+        MoveSpped = Masetaa.GetComponent<RoleInfo>().Speed;
     }
     private void Update()
     {
         transform.Translate(0, 0, 10 * Time.deltaTime);
         Timing += Time.fixedDeltaTime;
-        if (Timing > 3)
+        if (Timing > 5 || transform.position.z > God.god.worldPosTopRight.y+0.5f)
         {
             EnterBulletPool();
             Timing = 0;
         }
-        
+
     }
     //private void FixedUpdate()
     //{
