@@ -75,7 +75,6 @@ public class RoleInfo : MonoBehaviour
     {
         transform.parent = God.god.GetStandbyPool_Game().transform;
         transform.gameObject.SetActive(false);
-        print("死了");
         //transform.position
         ExpAnimation();
 

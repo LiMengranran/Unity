@@ -142,7 +142,6 @@ public class EnemyBorn : MonoBehaviour
         }
         go.transform.position = pos;
         go.transform.rotation = dir;
-        print("出生了");
         God.god.EnemiesNum += 1; //出场数量 +自己 +1
     } //敌人出生
     void BornGenerateTime()

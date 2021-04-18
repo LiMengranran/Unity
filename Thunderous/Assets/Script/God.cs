@@ -70,19 +70,14 @@ public class God : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        //Vector3 pos1 = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        //Vector3 pos2 = Camera.main.ViewportToWorldPoint(pos1);
-        //cube.transform.position = new Vector3(pos2.x, 0, pos2.z);
-        //print(pos2);
         if (!IsStartGame)
         {
             //布置难度
             DifficultValue = FindSon(BeginUi.transform, "difficultMode").gameObject.GetComponent<Slider>().value;
 
             float Num = DifficultValue * 3 * 5f + 5; //根据难度调整出场数量
-            MaxEnemiesNum = int.Parse((Mathf.Round(Num).ToString()));
-            print("最大敌人"+ MaxEnemiesNum);
+            MaxEnemiesNum =int.Parse((Mathf.Round(Num).ToString()));
+            //print("最大敌人" + MaxEnemiesNum);
             //MaxEnemiesNum=Mathf()
             if (DifficultValue <= 0.3f)
             {
@@ -101,13 +96,17 @@ public class God : MonoBehaviour
                 DifficultText = "地狱";
             }
             FindSon(BeginUi.transform, "DifficultyDisplay").gameObject.GetComponent<Text>().text = DifficultText;
+            GameUi.SetActive(!BeginUi.activeSelf); //与开始界面 激活状态相反
             return;
         }
         else
         {
+
             BeginUi.SetActive(false);
+            GameUi.SetActive(!BeginUi.activeSelf); //与开始界面 激活状态相反
         }
-        FindSon(GameUi.transform, "EnemiesNum").gameObject.GetComponent<Text>().text = EnemiesNum.ToString();
+
+        FindSon(GameUi.transform, "EnemiesNum").gameObject.GetComponent<Text>().text = "敌人："+EnemiesNum.ToString();
         //print(EnemiesNum + "-----" + MaxEnemiesNum);
     }
 
