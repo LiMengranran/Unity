@@ -52,7 +52,7 @@ public class God : MonoBehaviour
             BeginUi = FindSon(Ui.transform, "StartInterface").gameObject; //开始界面
             GameUi = FindSon(Ui.transform, "GameUi").gameObject;
         }
-        FindSon(BeginUi.transform, "StartGame ").gameObject.GetComponent<Button>().onClick.AddListener(IsStartGameButton);
+        FindSon(BeginUi.transform, "StartGame").gameObject.GetComponent<Button>().onClick.AddListener(IsStartGameButton);
         FindSon(GameUi.transform, "IconSet").gameObject.GetComponent<Button>().onClick.AddListener(IsStartGameButton);
         //----------------------------屏幕范围-----------------------------
         worldPosLeftBottom = Camera.main.ViewportToWorldPoint(Vector2.zero);
@@ -63,10 +63,6 @@ public class God : MonoBehaviour
         //print(worldPosLeftBottom+"---"+ worldPosTopRight);
     }
 
-    //private void Start()
-    //{
-
-    //}
 
 
     private void FixedUpdate()
@@ -78,7 +74,7 @@ public class God : MonoBehaviour
             DifficultValue = FindSon(BeginUi.transform, "difficultMode").gameObject.GetComponent<Slider>().value;
 
             float Num = DifficultValue * 3 * 5f + 5; //根据难度调整出场数量
-            MaxEnemiesNum =int.Parse((Mathf.Round(Num).ToString()));
+            MaxEnemiesNum = int.Parse((Mathf.Round(Num).ToString()));
             //print("最大敌人" + MaxEnemiesNum);
             //MaxEnemiesNum=Mathf()
             if (DifficultValue <= 0.3f)
@@ -107,7 +103,7 @@ public class God : MonoBehaviour
             GameUi.SetActive(!BeginUi.activeSelf); //与开始界面 激活状态相反
         }
 
-        FindSon(GameUi.transform, "EnemiesNum").gameObject.GetComponent<Text>().text = "敌人："+EnemiesNum.ToString();
+        FindSon(GameUi.transform, "EnemiesNum").gameObject.GetComponent<Text>().text = "敌人：" + EnemiesNum.ToString();
         //print(EnemiesNum + "-----" + MaxEnemiesNum);
     }
 
