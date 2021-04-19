@@ -16,9 +16,9 @@ public class Bullet_Control : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(0, 0, 10 * Time.deltaTime);
+        transform.Translate(0, 0, 10 * Time.deltaTime * MoveSpped / 10);
         Timing += Time.fixedDeltaTime;
-        if (Timing > 5 || transform.position.z > God.god.worldPosTopRight.y+0.5f)
+        if (Timing > 20 || transform.position.z > God.god.worldPosTopRight.y + 0.5f || transform.position.z < God.god.worldPosLeftBottom.y - 0.5f)
         {
             EnterBulletPool();
             Timing = 0;
