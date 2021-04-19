@@ -41,7 +41,7 @@ public class enemyLogic_02 : MonoBehaviour
             Vector3 posY = new Vector3(X += (IsRight ? 0.01f * info.Speed : -0.01f * info.Speed), 0, dis) + God.god.Player.transform.position;
             transform.position = Vector3.Lerp(transform.position, posY, info.Speed * 0.1f * Time.deltaTime * Vector3.Distance(transform.position, God.god.Player.transform.position));
 
-            info.LookPlayer(); //看向玩家
+            info.LookPlayer(transform); //看向玩家
 
             //限制范围
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),

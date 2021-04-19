@@ -44,7 +44,7 @@ public class enemyLogic_03 : MonoBehaviour
         else
         {
             dazeTiming += Time.deltaTime;
-            info.LookPlayer();
+            info.LookPlayer(transform);
         }
     }
     public void IsAimingLine()

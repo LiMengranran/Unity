@@ -65,12 +65,10 @@ public class EnemyBorn : MonoBehaviour
     float GenerateTime;
     private void FixedUpdate()
     {
+        return;
+
         if (!God.god.IsStartGame)
         {
-
-
-            //print(EnemiesNum);
-            //EnemiesNum = int.Parse(God.god.DifficultValue * 5f);
             return;
         }
 
@@ -98,9 +96,9 @@ public class EnemyBorn : MonoBehaviour
 
                     switch (NB)
                     {
-                        //case "01":
-                        //    BornEnemy(Enemy01, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
-                        //    break;
+                        case "01":
+                            BornEnemy(Enemy01, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
+                            break;
                         case "02":
                             BornEnemy(Enemy02, EnemyGoPos[i].position, EnemyGoPos[i].rotation);
                             break;
@@ -151,4 +149,9 @@ public class EnemyBorn : MonoBehaviour
         CreateEnemyList.RemoveAt(12);
         GenerateEnemyTiming = 0;
     }//赋予 生成敌人的时间
+
+    void BornBoss()
+    {
+
+    }
 }
