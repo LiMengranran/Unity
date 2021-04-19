@@ -18,7 +18,7 @@ public class God : MonoBehaviour
     //Button StartGame;
 
 
-    GameObject BulletPool;
+    public GameObject BulletPool;
 
     GameObject StandbyPool;
 

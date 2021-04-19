@@ -16,7 +16,7 @@ public class RoleInfo : MonoBehaviour
     private GameObject bullet;
 
     float shootTiming;
-    Transform Emitter;
+    public Transform Emitter;
     public GameObject AimingLine;
     public Vector3 AimingLineScale;
     public Vector3 Static_AimingLine;
@@ -115,12 +115,13 @@ public class RoleInfo : MonoBehaviour
         go.transform.position = Emitter.transform.position;
         go.transform.rotation = Emitter.transform.rotation;
     } //射击
+    
 
-
-    public void LookPlayer()
+    public void LookPlayer(Transform tran)
     {
         Quaternion dir = Quaternion.LookRotation(God.god.Player.transform.position - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, dir, 0.1f);
+        tran.rotation = Quaternion.Lerp(transform.rotation, dir, 0.1f);
+        //return tran.rotation;
     }
     public bool Timer(float Timing, float NeedTime)
     {
