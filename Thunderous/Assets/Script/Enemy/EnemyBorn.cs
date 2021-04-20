@@ -65,7 +65,7 @@ public class EnemyBorn : MonoBehaviour
     float GenerateTime;
     private void FixedUpdate()
     {
-        return;
+        //return;
 
         if (!God.god.IsStartGame)
         {

@@ -36,6 +36,7 @@ public class enemyLogic_02 : MonoBehaviour
         {
             IsRight = true;
         }
+
         if (transform.position.z <= God.god.worldPosTopRight.y)
         {
             Vector3 posY = new Vector3(X += (IsRight ? 0.01f * info.Speed : -0.01f * info.Speed), 0, dis) + God.god.Player.transform.position;

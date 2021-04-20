@@ -50,14 +50,14 @@ public class RoleInfo : MonoBehaviour
 
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
         //print(transform.GetComponent<Collider>().bounds.extents);
 
         if (!God.god.IsStartGame)
             return;
         if (shootTiming < ShootCD) //子弹计时充能
-            shootTiming += Time.fixedDeltaTime;
+            shootTiming += Time.deltaTime;
 
 
         if (Hp <= 0
@@ -71,6 +71,10 @@ public class RoleInfo : MonoBehaviour
             Hp = StaticHp; //变0后 进缓冲池血量回复
         }
     }
+    //private void FixedUpdate()
+    //{
+
+    //}
     public void Dead()
     {
         transform.parent = God.god.GetStandbyPool_Game().transform;
@@ -115,7 +119,7 @@ public class RoleInfo : MonoBehaviour
         go.transform.position = Emitter.transform.position;
         go.transform.rotation = Emitter.transform.rotation;
     } //射击
-    
+
 
     public void LookPlayer(Transform tran)
     {

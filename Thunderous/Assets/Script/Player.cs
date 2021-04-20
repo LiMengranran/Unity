@@ -6,13 +6,13 @@ public class Player : MonoBehaviour
 {
     RoleInfo info;
 
-    GameObject BulletPool;
-    GameObject bullet;
-    Transform Emitter;
-    //private void Awake()
-    //{
+    //GameObject BulletPool;
+    //GameObject bullet;
+    //Transform Emitter;
+    ////private void Awake()
+    ////{
 
-    //}
+    ////}
     void Start()
     {
         info = transform.GetComponent<RoleInfo>();
@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),
                                          transform.position.y,
                                          Mathf.Clamp(transform.position.z, God.god.worldPosLeftBottom.y, God.god.worldPosTopRight.y));
-        //print(transform.position.z+"---"+ -God.god.worldPosLeftBottom.y);
 
         if (Input.GetKey(KeyCode.J) && info.Timer(info.ShootTiming, info.ShootCD))
         {

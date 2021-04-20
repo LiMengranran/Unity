@@ -37,14 +37,18 @@ public class BoosLogic_01 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MachineGunShoot();
+        if (!God.god.IsStartGame)
+            return;
+        //MachineGunShoot();
         MachineGun[0].Rotate(new Vector3(0, 1, 0));
         MachineGun[1].Rotate(new Vector3(0, -1, 0));
+        FancyShoot();
 
-        for (int i = 0; i < MachineGun.Count; i++)
-        {
-            FancyShoot(MachineGun[i]);
-        }
+
+        //for (int i = 0; i < MachineGun.Count; i++)
+        //{
+        //    FancyShoot(MachineGun[i]);
+        //}
     }
     void MachineGunShoot()
     {
@@ -55,26 +59,28 @@ public class BoosLogic_01 : MonoBehaviour
             info.Shoot();
         }
     }//机枪射击
-    void FancyShoot(Transform tran)
+    void FancyShoot()
     {
         if (info.Timer(FancyShootTiming, info.ShootCD) && transform.position.z <= God.god.worldPosTopRight.y) //充能
         {
-
             FancyShootTiming = 0; //重置射击充能
-            GameObject go;
-            if (God.god.BulletPool.transform.childCount > 0)
+            for (int i = 0; i < MachineGun.Count; i++)
             {
-                go = God.god.BulletPool.transform.GetChild(0).gameObject;
-                go.transform.parent = null;
-                go.SetActive(true);
+                GameObject go;
+                if (God.god.BulletPool.transform.childCount > 0)
+                {
+                    go = God.god.BulletPool.transform.GetChild(0).gameObject;
+                    go.transform.parent = null;
+                    go.SetActive(true);
+                }
+                else
+                {
+                    go = Instantiate(info.Bullet);
+                }
+                go.GetComponent<Bullet_Control>().Masetaa = transform.gameObject;
+                go.transform.position = MachineGun[i].position;
+                go.transform.rotation = MachineGun[i].rotation;
             }
-            else
-            {
-                go = Instantiate(info.Bullet);
-            }
-            go.GetComponent<Bullet_Control>().Masetaa = transform.gameObject;
-            go.transform.position = tran.position;
-            go.transform.rotation = tran.rotation;
         }
         else
         {
