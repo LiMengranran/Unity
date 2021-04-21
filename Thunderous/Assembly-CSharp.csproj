@@ -67,7 +67,6 @@
     <Compile Include="Assets\Script\Bullet_Control.cs" />
     <Compile Include="Assets\Script\Enemy\BoosLogic_01.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBorn.cs" />
-    <Compile Include="Assets\Script\Enemy\enemyLogicMain.cs" />
     <Compile Include="Assets\Script\Enemy\enemyLogic_01.cs" />
     <Compile Include="Assets\Script\Enemy\enemyLogic_02.cs" />
     <Compile Include="Assets\Script\Enemy\enemyLogic_03.cs" />

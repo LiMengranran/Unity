@@ -7,6 +7,8 @@ public class God : MonoBehaviour
     public static God god;
     GameObject player;
 
+    public string BornEnemyDigitalString;
+
     public bool IsStartGame = false;
     GameObject Ui;
     GameObject BeginUi;
@@ -42,6 +44,11 @@ public class God : MonoBehaviour
         AnimationPool = GameObject.Find("AnimationPool");
         //----------------------------敌人-----------------------------
 
+        BornEnemyDigitalString = "0102030203030100"; //生成敌人数字串
+
+
+        //FindSon(BeginUi.transform, "InputNBglsText").gameObject.GetComponent<Text>().text = BornEnemyDigitalString;
+
         BulletPool = GameObject.Find("BulletPool"); //子弹缓存
         StandbyPool = GameObject.Find("StandbyPool"); //待机 缓存
 
@@ -69,6 +76,9 @@ public class God : MonoBehaviour
     {
         if (!IsStartGame)
         {
+            //BornEnemyDigitalString = FindSon(BeginUi.transform, "InputNBgls").GetComponent<InputField>().text;
+
+            //
             BeginUi.SetActive(true);
             //布置难度
             DifficultValue = FindSon(BeginUi.transform, "difficultMode").gameObject.GetComponent<Slider>().value;

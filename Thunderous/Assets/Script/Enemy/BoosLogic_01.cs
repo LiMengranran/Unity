@@ -12,6 +12,8 @@ public class BoosLogic_01 : MonoBehaviour
     List<Transform> MachineGun = new List<Transform>();
     List<Transform> LaserRunning = new List<Transform>();
 
+    float X;
+
     private void Awake()
     {
         info = transform.GetComponent<RoleInfo>();
@@ -27,6 +29,8 @@ public class BoosLogic_01 : MonoBehaviour
         {
             LaserRunning.Add(transform.Find("LaserCannon" + i));
         }
+
+        X = Random.Range(God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x + 1); //距离
     }
     // Start is called before the first frame update
     //void Start()
@@ -39,7 +43,28 @@ public class BoosLogic_01 : MonoBehaviour
     {
         if (!God.god.IsStartGame)
             return;
-        //MachineGunShoot();
+
+        if (transform.position.z <= God.god.worldPosTopRight.y)
+        {
+            if ((X < 0 ? transform.position.x <= X + 0.1f : transform.position.x >= X - 0.1f))
+            {
+                X = Random.Range(God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x + 1); //距离
+            }
+            Vector3 posY = new Vector3(0, 0, 4);
+            transform.position = Vector3.Lerp(transform.position, posY, info.Speed * 0.1f * Time.deltaTime);
+
+
+            //限制范围
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, God.god.worldPosLeftBottom.x, God.god.worldPosTopRight.x),
+                                             transform.position.y,
+                                             Mathf.Clamp(transform.position.z, God.god.worldPosLeftBottom.y, God.god.worldPosTopRight.y));
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, 0, -info.Speed * Time.deltaTime), Space.World);
+        }
+
+        MachineGunShoot();
         MachineGun[0].Rotate(new Vector3(0, 1, 0));
         MachineGun[1].Rotate(new Vector3(0, -1, 0));
         FancyShoot();
@@ -61,7 +86,9 @@ public class BoosLogic_01 : MonoBehaviour
     }//机枪射击
     void FancyShoot()
     {
-        if (info.Timer(FancyShootTiming, info.ShootCD) && transform.position.z <= God.god.worldPosTopRight.y) //充能
+
+
+        if (info.Timer(FancyShootTiming, 0.1f) && transform.position.z <= God.god.worldPosTopRight.y) //充能
         {
             FancyShootTiming = 0; //重置射击充能
             for (int i = 0; i < MachineGun.Count; i++)

@@ -18,8 +18,8 @@ public class Bullet_Control : MonoBehaviour
     {
         transform.Translate(0, 0, 10 * Time.deltaTime * Masetaa.GetComponent<RoleInfo>().Speed / 10);
         Timing += Time.fixedDeltaTime;
-        if (Timing > 20 || transform.position.z > God.god.worldPosTopRight.y + 0.5f 
-            || transform.position.z < God.god.worldPosLeftBottom.y - 0.5f 
+        if (Timing > 20 || transform.position.z > God.god.worldPosTopRight.y + 0.5f
+            || transform.position.z < God.god.worldPosLeftBottom.y - 0.5f
             || transform.position.x < God.god.worldPosLeftBottom.x - 0.5f
             || transform.position.x > God.god.worldPosTopRight.x + 0.5f)
         {
@@ -33,6 +33,9 @@ public class Bullet_Control : MonoBehaviour
     //}
     private void OnTriggerEnter(Collider other)
     {
+        //print(other.transform.parent.name);
+        if (other.name == Masetaa.transform.name) //打到自己了
+            return;
         if (other.GetComponent<RoleInfo>())
         {
             other.GetComponent<RoleInfo>().Hp -= Masetaa.GetComponent<RoleInfo>().Attk;

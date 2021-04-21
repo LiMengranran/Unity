@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBorn : MonoBehaviour
 {
-    string NbGls;
+
 
     List<Transform> EnemyGoPos = new List<Transform>();
     List<char> CreateEnemyList = new List<char>();
@@ -16,6 +16,9 @@ public class EnemyBorn : MonoBehaviour
     GameObject Enemy02;
     GameObject Enemy03;
 
+    bool IsBossAppear = false;
+    GameObject Boss01;
+
     private void Awake()
     {
         for (int i = 0; i < this.transform.childCount; i++)
@@ -25,6 +28,7 @@ public class EnemyBorn : MonoBehaviour
         Enemy01 = Resources.Load<GameObject>("Enemy_01");
         Enemy02 = Resources.Load<GameObject>("Enemy_02");
         Enemy03 = Resources.Load<GameObject>("Enemy_03");
+        Boss01 = Resources.Load<GameObject>("Boss01");
     }
     // Start is called before the first frame update
     void Start()
@@ -41,25 +45,18 @@ public class EnemyBorn : MonoBehaviour
         {
             EnemyGoPos[i].position += new Vector3(interval * (i + 1), 0, 0); //出发口布局
         }
-
-        //NbGls = "0100020100010001000100010000000000010001000000010000010001000000000100010001000100"; //生成怪物的数据010002
-        //NbGls = "010200020001201020232150+4302200011"; //生成怪物的数据
-        NbGls = "230847329847983274213849013284901328049312894082139048132903869023714981234982137341328523491320491320491230"; //生成怪物的数据
-        //NbGls = "0102030405060708"; //16个
-
         while (true)
         {
-            if (NbGls.Length % 13 != 0)
-                NbGls += '0';
+            if (God.god.BornEnemyDigitalString.Length % 13 != 0)
+                God.god.BornEnemyDigitalString += '0';
             else
                 break;
         }//凑整12的倍数
-        for (int i = 0; i < NbGls.Length; i++)
+        for (int i = 0; i < God.god.BornEnemyDigitalString.Length; i++)
         {
-            CreateEnemyList.Add(NbGls[i]);
+            CreateEnemyList.Add(God.god.BornEnemyDigitalString[i]);
         }
         BornGenerateTime();
-
     }
     float GenerateEnemyTiming;
     float GenerateTime;
@@ -120,10 +117,14 @@ public class EnemyBorn : MonoBehaviour
                 GenerateEnemyTiming += Time.fixedDeltaTime;
             } //起飞时间
         }
-        //else
-        //{
-        //    print("飞完了");
-        //}
+        else
+        {
+            if (!IsBossAppear)
+            {
+                BornBoss();
+            }
+            //print("飞完了");
+        }
     }//生成敌人
     void BornEnemy(GameObject enemy, Vector3 pos, Quaternion dir)
     {
@@ -152,6 +153,9 @@ public class EnemyBorn : MonoBehaviour
 
     void BornBoss()
     {
-
+        GameObject go = GameObject.Instantiate(Boss01);
+        go.transform.position = new Vector3(0, 0, 8);
+        go.transform.rotation = EnemyGoPos[0].rotation;
+        IsBossAppear = true;
     }
 }
