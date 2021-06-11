@@ -1,0 +1,4 @@
+repository "3DModelLearning@ssl://luhf@sh01-plasticscm.unity.cn:8787"
+  path "/"
+    smartbranch "/main/luhengfeng1" 
+     

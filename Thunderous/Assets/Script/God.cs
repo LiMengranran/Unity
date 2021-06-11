@@ -45,6 +45,7 @@ public class God : MonoBehaviour
         //----------------------------敌人-----------------------------
 
         BornEnemyDigitalString = "0102030203030100"; //生成敌人数字串
+        //BornEnemyDigitalString = "01010101010101010101010101010101010101010101"; //生成敌人数字串
 
 
         //FindSon(BeginUi.transform, "InputNBglsText").gameObject.GetComponent<Text>().text = BornEnemyDigitalString;

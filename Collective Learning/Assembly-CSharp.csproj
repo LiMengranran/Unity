@@ -64,17 +64,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Hero Knight - Pixel Art\ColorSwap\ColorSwap_HeroKnight.cs" />
+    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\DestroyEvent_HeroKnight.cs" />
+    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\HeroKnight.cs" />
+    <Compile Include="Assets\Hero Knight - Pixel Art\Demo\Sensor_HeroKnight.cs" />
+    <Compile Include="Assets\Script\AddForce.cs" />
+    <Compile Include="Assets\Script\AsyncLoad.cs" />
+    <Compile Include="Assets\Script\AsyncLoad2.cs" />
     <Compile Include="Assets\Script\BufferPool and Ray\BulletMove.cs" />
     <Compile Include="Assets\Script\BufferPool and Ray\Divergent.cs" />
     <Compile Include="Assets\Script\BufferPool and Ray\God.cs" />
+    <Compile Include="Assets\Script\C.cs" />
     <Compile Include="Assets\Script\HitBrick\Ball.cs" />
     <Compile Include="Assets\Script\HitBrick\Brick.cs" />
     <Compile Include="Assets\Script\HitBrick\Player.cs" />
+    <Compile Include="Assets\Script\Id.cs" />
+    <Compile Include="Assets\Script\Navigabon.cs" />
+    <Compile Include="Assets\Script\OidAnimation.cs" />
+    <Compile Include="Assets\Script\Pool\Buffer1.cs" />
+    <Compile Include="Assets\Script\Pool\Buffer2.cs" />
+    <Compile Include="Assets\Script\Pool\BufferPool2.cs" />
+    <Compile Include="Assets\Script\RayShooting.cs" />
     <Compile Include="Assets\Script\RotateAround.cs" />
+    <Compile Include="Assets\Script\S_operation.cs" />
     <Compile Include="Assets\Script\SmallMapQuaternion.cs" />
     <Compile Include="Assets\Script\SmallMapVector.cs" />
+    <Compile Include="Assets\Script\Square.cs" />
     <Compile Include="Assets\Script\TriggerAndCollision.cs" />
     <Compile Include="Assets\Script\temp.cs" />
+    <Compile Include="Assets\Script\temp2.cs" />
+    <None Include="Assets\Hero Knight - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -604,31 +623,34 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Luhengfeng/Unity/Collective Learning/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity/Collective Learning/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

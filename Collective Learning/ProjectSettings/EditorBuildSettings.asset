@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/AsyncLoad.unity
+    guid: 2f0b4deb6d4242c4ba4a11d773d613cc
+  - enabled: 1
+    path: Assets/Scenes/AsyncLoad2.unity
+    guid: 0c6ab53abb7742048b89be17afa1100f
   m_configObjects: {}

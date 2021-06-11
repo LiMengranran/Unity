@@ -1,0 +1,7 @@
+D:\Unity\C#\CCC\CCC\bin\Debug\CCC.exe.config
+D:\Unity\C#\CCC\CCC\bin\Debug\CCC.exe
+D:\Unity\C#\CCC\CCC\bin\Debug\CCC.pdb
+D:\Unity\C#\CCC\CCC\obj\Debug\CCC.csprojAssemblyReference.cache
+D:\Unity\C#\CCC\CCC\obj\Debug\CCC.csproj.CoreCompileInputs.cache
+D:\Unity\C#\CCC\CCC\obj\Debug\CCC.exe
+D:\Unity\C#\CCC\CCC\obj\Debug\CCC.pdb
